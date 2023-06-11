@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" type="text/css" href="css/css14.css">
+
+ 
+    </head>
+    <body>
+
+        <nav class="nav nav_top">
+            <div class="logo">
+                <a href="#"><img src="assets/b_logo.jpg" width="100px" height="60px"></a>
+            </div>
+            <div class="nav_side">
+                <a class="p1" href="index.html">Home</a>
+                <a class="p1" href="about.html">About Us</a>
+                <a class="p1" href="service.html">Services</a>
+                <a class="p1" href="blog.html">Blogs</a>
+                <a class="p1" href="contact.html">Contact</a>
+            </div>
+        </nav>
+
+
+        <div class="html_hed">
+            <p>New User? Register Here</p>
+        </div>
+
+        <div class="html_form">
+            <form onsubmit="return validation()" name="Submit-googlesheet" method="post">
+                <h2>Register</h2>
+            
+            <input type="text" id="username" name="Name" placeholder="Enter your Full name"required><br>
+            <span id="errorname" style="color:red;"></span>
+            <input type="email" id="email" name="Email ID" placeholder="Enter your email"required ><br>
+            <span id="erroremail" style="color:red;"></span>
+            <input type="password" id="password" name="password" placeholder="Set the password" required><br>
+            <span id="errorpassword" style="color:red;"></span>
+            <input type="number" id="number" name="Number" placeholder="Enter contact number"required ><br>
+            <span id="errornumber" style="color:red;"></span>
+            <select name="Branch" required>
+                <option>--Branch--</option>
+                <option>CSE</option>
+                <option>Mechanical</option>
+                <option>ETC</option>
+                <option>ECE</option>
+            </select><br>
+            <select name="Year" required>
+                <option>--Year--</option>
+                <option>1st</option>
+                <option>2nd</option>
+                <option>3rd</option>
+                <option>4th</option>
+            </select><br>
+            <input type="text" name="College Name" placeholder="Enter college name"required><br>
+            <button type="submit" title="Are you sure?">Register</button>
+            <button type="reset" title="All registered data will clean.">refresh</button>
+            </form> 
+        </div>
+
+
+        <div class="html_hed">
+            <p>Already Registered? Login Here</p>
+        </div>
+
+        <div class="html_form">
+            <form onsubmit="return validation()" name="Submit-googlesheet" method="post">
+                <h2>Login</h2>
+
+                <input type="email" id="email" name="Email ID" placeholder="Enter your email" ><br>
+            <span id="erroremail" style="color:red;"></span>
+            <input type="password" id="password" name="password" placeholder="Enter your password" ><br>
+            <span id="errorpassword" style="color:red;"></span>
+            <button type="submit">Login</button>
+            
+        </div>
+
+
+        <script type="text/javascript">
+            function validation(){
+                var username = document.getElementById('username').value;
+                var email = document.getElementById('email').value;
+                var number = document.getElementById('number').value;
+
+                var usercheck = /^[A-za-z]{3,34}$/;
+                var emailcheck = /^[A-Za-z_0-9.]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/;
+                var numbercheck = /^[6789][0-9]{9}$/;
+
+                if(usercheck.test(username)){
+                    document.getElementById('errorname').innerHTML =" ";
+                }
+                else{
+                    document.getElementById('errorname').innerHTML ="**Invalid Name";
+                    return false; 
+                }
+                if (emailcheck.test(email)){
+                    document.getElementById('erroremail').innerHTML =" ";
+                }
+                else{
+                    document.getElementById('erroremail').innerHTML ="**Invalid Email";
+                    return false;
+                }
+                if (numbercheck.test(number)){
+                    document.getElementById('errornumber').innerHTML =" ";
+                }
+                else{
+                    document.getElementById('errornumber').innerHTML ="**Invalid Number";
+                    return false;
+                }
+            }
+        </script>
+
+        <script>
+             const scriptURL =
+                 'https://script.google.com/macros/s/AKfycbw6MS1ULABebO6rRnoAHK3kv1Uyna0XkA0L-bMM8bXygcD329NVhdgMjBGpq4qaIFs7Gg/exec'
+                  const form = document.forms['Submit-googlesheet']
+ 
+               form.addEventListener('submit', e => {
+                    e.preventDefault()
+                      fetch(scriptURL, {
+                          method: 'POST',
+                            body: new FormData(form)
+                        })
+                      .then(response => alert("Thanks you, We will get back to you soon..."))
+                      .catch(error => console.error('Error!', error.message))
+                   })
+ 
+        </script>
+
+<footer>
+    <div class="footer_logo">
+        <a href="#"><img src="assets/b_logo.jpg" width="100px" height="60px"></a>
+    </div>
+    <div class="pages">
+        <h3>Pages</h3>
+        <a href="about.html">About Us</a>|
+        <a href="service.html">Services</a>|
+        <a href="blog.html">Blogs</a>|
+        <a href="login.html">Login</a>|
+        <a href="sign.html">Sign Up</a>|
+    </div>
+    <div class="doc">
+        <h3>Documents</h3>
+        <a href="">Privacy Policy</a>|
+        <a href="">Terms of Use</a>|
+        <a href="">Refund Policy</a>|
+    </div>
+    <div class="social">
+        <h3>Follow Us</h3>
+        <a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fpages%2Fcategory%2FEducation-website%2F1Stopai-102490171820303%2F" target="_blank">
+            <i class="fa fa-facebook" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/company/1stop-ai?originalSubdomain=in" target="_blank">
+            <i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+        <a href="https://www.instagram.com/1stop.ai/?hl=en" target="_blank">
+            <i class="fa fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://twitter.com/1stopinsurance?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank">
+            <i class="fa fa-twitter" aria-hidden="true"></i></a>
+    </div>
+    <div class="contact">
+        <h3>Contact Us</h3>
+        <a href="https://api.WhatsApp.com/send?phone=+919876543210" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+        <a href="tel:+918765432190"><i class="fa fa-phone" aria-hidden="true"></i></a>
+        <a href="mailto:support@1stop.ai"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    </div>
+    <hr>
+    <p>Copyright &copy; 2022 1stop. All rights reserved</p>
+</footer>
+
+    </body>
+</html>
