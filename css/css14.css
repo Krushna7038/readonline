@@ -4,10 +4,9 @@ body{
 }
 .nav{
     background-color: white;
-    padding-left: 40px;
+    padding-left: 20px;
     padding-right: 20px;
     display:inline-block;
-    height: fit-content;
 }
 .nav_top{
     position: fixed;
@@ -19,13 +18,16 @@ body{
     float:left;
 }
 .logo img{
-    padding:10px;
+    margin-top: 10px;
+    height: 50px;
+    width: fit-content;
 }
 .nav_side{
     margin-top: 30px;
     margin-bottom: 10px;
     float: inline-end;
 }
+
 .nav_side .p1{
     text-decoration: none;
     margin-right: 10px;
@@ -35,18 +37,8 @@ body{
     font-size: medium;
 }
 .nav_side a:hover{
-    background-color: cyan;
     color: blue;
-    text-decoration: underline;
-    transition: all 1s ease;
-}
-.main{
-   /* background-image: url(assets/home.jpeg);*/
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 100vh;
+    transition: all 0.5s ease;
 }
 .main .main1{
     background-position: center;
