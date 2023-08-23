@@ -82,11 +82,11 @@
                 var email = document.getElementById('email').value;
                 var number = document.getElementById('number').value;
 
-                var usercheck = /^[A-za-z]{3,34}$/;
+                var usernamecheck = /^[A-za-z]{3,34}$/;
                 var emailcheck = /^[A-Za-z_0-9.]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/;
                 var numbercheck = /^[6789][0-9]{9}$/;
 
-                if(usercheck.test(username)){
+                if(usernamecheck.test(username)){
                     document.getElementById('errorname').innerHTML =" ";
                 }
                 else{
