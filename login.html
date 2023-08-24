@@ -68,11 +68,11 @@
                 <h2>Login</h2>
 
                 <input type="email" id="email" name="Email ID" placeholder="Enter your email" ><br>
-            <span id="erroremail" style="color:red;"></span>
-            <input type="password" id="password" name="password" placeholder="Enter your password" ><br>
-            <span id="errorpassword" style="color:red;"></span>
-            <button type="submit">Login</button>
-            
+                <span id="erroremail" style="color:red;"></span>
+                <input type="password" id="password" name="password" placeholder="Enter your password" ><br>
+                <span id="errorpassword" style="color:red;"></span>
+                <button type="submit">Login</button>
+            </form>
         </div>
 
 
@@ -121,7 +121,7 @@
                           method: 'POST',
                             body: new FormData(form)
                         })
-                      .then(response => alert("Thanks you, We will get back to you soon..."))
+                      .then(response => alert("Registration successful!!!!"))
                       .catch(error => console.error('Error!', error.message))
                    })
  
