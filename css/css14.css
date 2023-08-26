@@ -481,6 +481,10 @@ footer .contact a:hover{
 .html_hed p:hover{
     font-family: cosmic ,sans-serif;
 }
+.html_hed p .p1{
+    text-decoration: none;
+    color: black;
+}
 .html_form{
     margin-left: 30%;
 }   
@@ -542,6 +546,7 @@ footer .contact a:hover{
     font-size: 12px;
     border-radius: 5px;
     box-shadow:1px 1px 16px grey;
+    cursor: pointer;
     
 }
 .html_form form button:hover{
