@@ -20,46 +20,8 @@
             </div>
         </nav>
 
-
-        <div class="html_hed">
-            <p>New User? Register Here</p>
-        </div>
-
-        <div class="html_form">
-            <form onsubmit="return validation()" name="Submit-googlesheet" method="post">
-                <h2>Register</h2>
-            
-            <input type="text" id="username" name="Name" placeholder="Enter your Full name"required><br>
-            <span id="errorname" style="color:red;"></span>
-            <input type="email" id="email" name="Email ID" placeholder="Enter your email"required ><br>
-            <span id="erroremail" style="color:red;"></span>
-            <input type="password" id="password" name="password" placeholder="Set the password" required><br>
-            <span id="errorpassword" style="color:red;"></span>
-            <input type="number" id="number" name="Number" placeholder="Enter contact number"required ><br>
-            <span id="errornumber" style="color:red;"></span>
-            <select name="Branch" required>
-                <option>--Branch--</option>
-                <option>CSE</option>
-                <option>Mechanical</option>
-                <option>ETC</option>
-                <option>ECE</option>
-            </select><br>
-            <select name="Year" required>
-                <option>--Year--</option>
-                <option>1st</option>
-                <option>2nd</option>
-                <option>3rd</option>
-                <option>4th</option>
-            </select><br>
-            <input type="text" name="College Name" placeholder="Enter college name"required><br>
-            <button type="submit" title="Are you sure?">Register</button>
-            <button type="reset" title="Clear entered data.">refresh</button>
-            </form> 
-        </div>
-
-
-        <div class="html_hed">
-            <p>Already Registered? Login Here</p>
+        <div class="html_hed" id="log">
+            <p>New User? <a class="p1" href="register.html">Register Here</a></p>
         </div>
 
         <div class="html_form">
