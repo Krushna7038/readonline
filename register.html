@@ -80,12 +80,20 @@
         }
     
         function validateForm(){
+            var name_valid = /^[A-Za-z]+$/;
             var returnval = true;
             clearErrors();
     
             var name = document.forms['myForm']["fname"].value;
             if(name.length<5){
                 seterror("name", "**Length of name is too short.");
+                returnval = false;
+            }
+            else if(name.match(name_valid)){
+                returnval;
+            }
+            else{
+                seterror("name", "**Numbers and special symbols are not allowed.");
                 returnval = false;
             }
 
