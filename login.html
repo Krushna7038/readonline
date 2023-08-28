@@ -25,69 +25,58 @@
         </div>
 
         <div class="html_form">
-            <form onsubmit="return validation()" name="Submit-googlesheet" method="post">
+            <form onsubmit="return validation()" name="myForm" method="post">
                 <h2>Login</h2>
 
-                <input type="email" id="email" name="Email ID" placeholder="Enter your email" ><br>
-                <span id="erroremail" style="color:red;"></span>
-                <input type="password" id="password" name="password" placeholder="Enter your password" ><br>
-                <span id="errorpassword" style="color:red;"></span>
+                <div class="formdesign" id="email">
+                    <input type="email" name="femail" placeholder="Enter your email" required>
+                    <span class="formerror" style="color: red;"></span>
+                </div>
+
+                <div class="formdesign" id="pass">
+                    <input type="password" name="fpass" placeholder="Create new password" required>
+                    <span class="formerror" style="color: red;"></span>
+                </div>
+
                 <button type="submit">Login</button>
                 <button type="reset">Refresh</button>
             </form>
         </div>
 
 
-        <script type="text/javascript">
-            function validation(){
-                var username = document.getElementById('username').value;
-                var email = document.getElementById('email').value;
-                var number = document.getElementById('number').value;
-
-                var usernamecheck = /^[A-za-z]{3,34}$/;
-                var emailcheck = /^[A-Za-z_0-9.]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/;
-                var numbercheck = /^[6789][0-9]{9}$/;
-
-                if(usernamecheck.test(username)){
-                    document.getElementById('errorname').innerHTML =" ";
-                }
-                else{
-                    document.getElementById('errorname').innerHTML ="**Invalid Name";
-                    return false; 
-                }
-                if (emailcheck.test(email)){
-                    document.getElementById('erroremail').innerHTML =" ";
-                }
-                else{
-                    document.getElementById('erroremail').innerHTML ="**Invalid Email";
-                    return false;
-                }
-                if (numbercheck.test(number)){
-                    document.getElementById('errornumber').innerHTML =" ";
-                }
-                else{
-                    document.getElementById('errornumber').innerHTML ="**Invalid Number";
-                    return false;
-                }
-            }
-        </script>
-
         <script>
-             const scriptURL =
-                 'https://script.google.com/macros/s/AKfycbw6MS1ULABebO6rRnoAHK3kv1Uyna0XkA0L-bMM8bXygcD329NVhdgMjBGpq4qaIFs7Gg/exec'
-                  const form = document.forms['Submit-googlesheet']
- 
-               form.addEventListener('submit', e => {
-                    e.preventDefault()
-                      fetch(scriptURL, {
-                          method: 'POST',
-                            body: new FormData(form)
-                        })
-                      .then(response => alert("Registration successful!!!!"))
-                      .catch(error => console.error('Error!', error.message))
-                   })
- 
-        </script>
+        function clearErrors(){
+            errors = document.getElementsByClassName('formerror');
+            for(let item of errors){
+                item.innerHTML = "";
+            }
+        }
+    
+        function seterror(id, error){
+            element = document.getElementById(id);
+            element.getElementsByClassName('formerror')[0].innerHTML = error;
+        }
+    
+        function validation(){
+            var returnval = true;
+            clearErrors();
+    
+            var email = document.forms['myForm']["femail"].value;
+            if(email.length>15){
+                seterror("email", "**Length of email is  too much.");
+                returnval = false;
+            }
+
+            var pass = document.forms['myForm']["fpass"].value;
+            if(pass.length<8){
+                seterror("pass", "**Password must be atleast 8 character.");
+                returnval  = false;
+            }
+    
+            return returnval;
+    
+        }
+    </script>
 
 <footer>
     <div class="footer_logo">
