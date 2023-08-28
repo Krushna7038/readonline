@@ -24,86 +24,110 @@
     </div>
 
     <div class="html_form">
-        <form onsubmit="return validation()" name="Submit-googlesheet" method="post">
+        <form action="login.html#log" onsubmit="return validateForm()" name="myForm" method="post">
             <h2>Register</h2>
         
-        <input type="text" id="username" name="Name" placeholder="Enter your Full name"required><br>
-        <span id="errorname" style="color:red;"></span>
-        <input type="email" id="email" name="Email ID" placeholder="Enter your email"required ><br>
-        <span id="erroremail" style="color:red;"></span>
-        <input type="password" id="password" name="password" placeholder="Set the password" required><br>
-        <span id="errorpassword" style="color:red;"></span>
-        <input type="number" id="number" name="Number" placeholder="Enter contact number"required ><br>
-        <span id="errornumber" style="color:red;"></span>
-        <select name="Branch" required>
-            <option>--Branch--</option>
-            <option>CSE</option>
-            <option>Mechanical</option>
-            <option>ETC</option>
-            <option>ECE</option>
-        </select><br>
-        <select name="Year" required>
-            <option>--Year--</option>
-            <option>1st</option>
-            <option>2nd</option>
-            <option>3rd</option>
-            <option>4th</option>
-        </select><br>
-        <input type="text" name="College Name" placeholder="Enter college name"required><br>
-        <button type="submit" title="Are you sure?">Register</button>
-        <button type="reset" title="Clear entered data.">refresh</button>
-        </form> 
+        <div class="formdesign" id="name">
+            <input type="text" name="fname" placeholder="Enter your name" required>
+            <span class="formerror" style="color: red;"></span>
+        </div>
+
+        <div class="formdesign" id="email">
+            <input type="email" name="femail" placeholder="Enter your email" required>
+            <span class="formerror" style="color: red;"></span>
+        </div>
+
+        <div class="formdesign" id="phone">
+            <input type="number" name="fphone" placeholder="Enter your mobile number" required>
+            <span class="formerror" style="color: red;"></span>
+        </div>
+
+        <div class="formdesign" id="addr">
+            <input type="text" name="faddr" placeholder="Enter your address" required>
+            <span class="formerror" style="color: red;"></span>
+        </div>
+
+        <div class="formdesign" id="pin">
+            <input type="number" name="fpin" placeholder="Enter pin code" required>
+            <span class="formerror" style="color: red;"></span>
+        </div>
+
+        <div class="formdesign" id="pass">
+            <input type="password" name="fpass" placeholder="Create new password" required>
+            <span class="formerror" style="color: red;"></span>
+        </div>
+
+        <div class="formdesign" id="cpass">
+            <input type="password" name="fcpass" placeholder="Confirm password" required>
+            <span class="formerror" style="color: red;"></span>
+        </div>
+
+        <button type="submit">Register</button>
+        <button type="reset">Refresh</button>
     </div>
 
-    <script type="text/javascript">
-        function validation(){
-            var username = document.getElementById('username').value;
-            var email = document.getElementById('email').value;
-            var number = document.getElementById('number').value;
-
-            var usernamecheck = /^[A-za-z]{3,34}$/;
-            var emailcheck = /^[A-Za-z_0-9.]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/;
-            var numbercheck = /^[6789][0-9]{9}$/;
-
-            if(usernamecheck.test(username)){
-                document.getElementById('errorname').innerHTML =" ";
-            }
-            else{
-                document.getElementById('errorname').innerHTML ="**Invalid Name";
-                return false; 
-            }
-            if (emailcheck.test(email)){
-                document.getElementById('erroremail').innerHTML =" ";
-            }
-            else{
-                document.getElementById('erroremail').innerHTML ="**Invalid Email";
-                return false;
-            }
-            if (numbercheck.test(number)){
-                document.getElementById('errornumber').innerHTML =" ";
-            }
-            else{
-                document.getElementById('errornumber').innerHTML ="**Invalid Number";
-                return false;
+    <script>
+        function clearErrors(){
+            errors = document.getElementsByClassName('formerror');
+            for(let item of errors){
+                item.innerHTML = "";
             }
         }
-    </script>
+    
+        function seterror(id, error){
+            element = document.getElementById(id);
+            element.getElementsByClassName('formerror')[0].innerHTML = error;
+        }
+    
+        function validateForm(){
+            var returnval = true;
+            clearErrors();
+    
+            var name = document.forms['myForm']["fname"].value;
+            if(name.length<5){
+                seterror("name", "**Length of name is too short.");
+                returnval = false;
+            }
 
-    <script>
-         const scriptURL =
-             'https://script.google.com/macros/s/AKfycbw6MS1ULABebO6rRnoAHK3kv1Uyna0XkA0L-bMM8bXygcD329NVhdgMjBGpq4qaIFs7Gg/exec'
-              const form = document.forms['Submit-googlesheet']
+            var email = document.forms['myForm']["femail"].value;
+            if(email.length>15){
+                seterror("email", "**Length of email is  too much.");
+                returnval = false;
+            }
 
-           form.addEventListener('submit', e => {
-                e.preventDefault()
-                  fetch(scriptURL, {
-                      method: 'POST',
-                        body: new FormData(form)
-                    })
-                  .then(response => alert("Registration successful!!!!"))
-                  .catch(error => console.error('Error!', error.message))
-               })
+            var phone = document.forms['myForm']["fphone"].value;
+            if(phone.length != 10){
+                seterror("phone", "**Mobile number is not valid.");
+                returnval = false;
+            }
 
+            var addr = document.forms['myForm']["faddr"].value;
+            if(addr.length<15){
+                seterror("addr", "**Address is too short. Enter full address.");
+                returnval = false;
+            }
+
+            var pin = document.forms['myForm']["fpin"].value;
+            if(pin.length != 6){
+                seterror("pin", "**Enter valid pin code.");
+                returnval = false;
+            }
+
+            var pass = document.forms['myForm']["fpass"].value;
+            if(pass.length<8){
+                seterror("pass", "**Password must be atleast 8 character.");
+                returnval  = false;
+            }
+
+            var cpass = document.forms['myForm']["fcpass"].value;
+            if(cpass != pass){
+                seterror("cpass", "**Password must be unique.");
+                returnval = false;
+            }
+    
+            return returnval;
+    
+        }
     </script>
 
 <footer>
@@ -146,4 +170,5 @@
 </footer>
 
 </body>
+
 </html>
