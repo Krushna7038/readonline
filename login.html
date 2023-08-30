@@ -10,7 +10,7 @@
 
         <nav class="nav nav_top">
             <div class="logo">
-                <a href="#"><img src="assets/b_logo.jpg" width="100px" height="60px"></a>
+                <a href="#"><img src="assets/b_logo.png" width="100px" height="60px"></a>
             </div>
             <div class="nav_side">
                 <a class="p1" href="index.html">Home</a>
@@ -44,7 +44,7 @@
         </div>
 
 
-        <script>
+    <script>
         function clearErrors(){
             errors = document.getElementsByClassName('formerror');
             for(let item of errors){
@@ -63,13 +63,13 @@
     
             var email = document.forms['myForm']["femail"].value;
             if(email.length>15){
-                seterror("email", "**Length of email is  too much.");
+                seterror("email", "**Please correct email");
                 returnval = false;
             }
 
             var pass = document.forms['myForm']["fpass"].value;
             if(pass.length<8){
-                seterror("pass", "**Password must be atleast 8 character.");
+                seterror("pass", "**Please enter correct password.");
                 returnval  = false;
             }
     
@@ -80,7 +80,7 @@
 
 <footer>
     <div class="footer_logo">
-        <a href="#"><img src="assets/b_logo.jpg" width="100px" height="60px"></a>
+        <a href="#"><img src="assets/b_logo.png" width="100px" height="60px"></a>
     </div>
     <div class="pages">
         <h3>Pages</h3>
