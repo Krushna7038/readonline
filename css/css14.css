@@ -65,6 +65,7 @@ body{
 }
 .main .main1 .main_content h2 span{
     color: rgb(252, 248, 251);
+    background-color: black;
     font-size: 16px;
     font-family: cosmic,sans-serif;
     font-weight: bold;
@@ -366,13 +367,11 @@ body{
     font-family: cosmic,sans-serif;
 }
 .contact_container{
-    padding:100px;
+    padding:10px;
 }
 .contact_container h2{
     text-align: center;
-    color: white;
     font-weight: bold;
-    padding: 10px;
     font-size: 35px;
     text-transform: uppercase;
 }
@@ -380,10 +379,10 @@ body{
     border: 10px solid cyan;
 }
 .contact_container .contact_content{
-    padding: 20px;
+    padding: 10px;
+    text-align: center;
 }
 .contact_container .contact_content p{
-    padding: 5px;
     font-size: 15px;
     font-family: cosmic,sans-serif;
 }
